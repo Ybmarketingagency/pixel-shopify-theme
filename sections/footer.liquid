@@ -1,0 +1,88 @@
+<footer class="bg-slate-50 border-t border-slate-200 mt-20">
+  <div class="container-x py-16">
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-8">
+      <div class="col-span-2">
+        <img src="{{ 'logo.png' | asset_url }}" alt="Pixel" class="h-9 w-auto">
+        <p class="mt-4 text-sm text-slate-600 max-w-xs">Premium refurbished telefoons. Goed voor je portemonnee, geweldig voor de planeet.</p>
+
+        <div class="mt-6 flex items-center gap-3">
+          <a href="https://www.instagram.com/pixel.refurbished/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-brand-50 hover:border-brand-200 hover:text-brand-700 transition" aria-label="Instagram">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Pixel.Refurbished" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-brand-50 hover:border-brand-200 hover:text-brand-700 transition" aria-label="Facebook">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium border border-emerald-100">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.9 17.3-8.2 17.04zM2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          CO2-neutraal vanaf dag één
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4">Shop</h4>
+        <ul class="space-y-3">
+          <li><a href="/pages/telefoons" class="text-sm text-slate-600 hover:text-brand-700 transition">Alle telefoons</a></li>
+          <li><a href="/pages/telefoons?brand=Apple" class="text-sm text-slate-600 hover:text-brand-700 transition">iPhone</a></li>
+          <li><a href="/pages/telefoons?brand=Samsung" class="text-sm text-slate-600 hover:text-brand-700 transition">Samsung</a></li>
+          <li><a href="/pages/verkopen" class="text-sm text-slate-600 hover:text-brand-700 transition">Verkoop je telefoon</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4">Bedrijf</h4>
+        <ul class="space-y-3">
+          <li><a href="/pages/over-ons" class="text-sm text-slate-600 hover:text-brand-700 transition">Over ons</a></li>
+          <li><a href="/pages/over-ons" class="text-sm text-slate-600 hover:text-brand-700 transition">Onze impact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4">Support</h4>
+        <ul class="space-y-3">
+          <li><a href="/pages/klantenservice" class="text-sm text-slate-600 hover:text-brand-700 transition">Helpcentrum</a></li>
+          <li><a href="/pages/contact" class="text-sm text-slate-600 hover:text-brand-700 transition">Contact</a></li>
+          <li><a href="/pages/klantenservice" class="text-sm text-slate-600 hover:text-brand-700 transition">Garantie</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4">Juridisch</h4>
+        <ul class="space-y-3">
+          <li><a href="/pages/klantenservice" class="text-sm text-slate-600 hover:text-brand-700 transition">Privacy</a></li>
+          <li><a href="/pages/klantenservice" class="text-sm text-slate-600 hover:text-brand-700 transition">Voorwaarden</a></li>
+          <li><a href="/pages/klantenservice" class="text-sm text-slate-600 hover:text-brand-700 transition">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="flex flex-col gap-1">
+        <p class="text-xs text-slate-500">© {{ 'now' | date: '%Y' }} Pixel — Alle rechten voorbehouden</p>
+        <p class="text-xs text-slate-400">
+          Gemaakt door
+          <a href="https://techazura.nl" target="_blank" rel="noopener noreferrer" class="font-semibold text-slate-600 hover:text-brand-700 transition">TechAzura</a>
+        </p>
+      </div>
+      <div class="flex items-center gap-3 flex-wrap">
+        <div class="h-8 bg-white border border-slate-200 rounded-lg px-2 flex items-center">
+          <img src="{{ 'pay-ideal.svg' | asset_url }}" alt="iDEAL" class="h-5 w-auto">
+        </div>
+        <div class="h-8 bg-white border border-slate-200 rounded-lg px-2 flex items-center">
+          <img src="{{ 'pay-bancontact.svg' | asset_url }}" alt="Bancontact" class="h-5 w-auto">
+        </div>
+        <div class="h-8 bg-white border border-slate-200 rounded-lg px-2 flex items-center">
+          <img src="{{ 'pay-apple.svg' | asset_url }}" alt="Apple Pay" class="h-5 w-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{%- comment -%}
+  Map color name (Dutch / English) to a CSS background colour.
+  Usage: {% render 'color-swatch', name: product.color %}
+  Returns just the CSS color string for inline style.
+{%- endcomment -%}
+{%- assign n = name | downcase -%}
+{%- if n contains 'zwart' or n contains 'black' -%}#1e293b
+{%- elsif n contains 'wit' or n contains 'white' or n contains 'snow' -%}#f8fafc
+{%- elsif n contains 'blauw' or n contains 'blue' -%}#2563eb
+{%- elsif n contains 'goud' or n contains 'gold' -%}#d4af37
+{%- elsif n contains 'roze' or n contains 'pink' or n contains 'rose' -%}#f9a8d4
+{%- elsif n contains 'groen' or n contains 'green' -%}#166534
+{%- elsif n contains 'grijs' or n contains 'grey' or n contains 'gray' -%}#64748b
+{%- elsif n contains 'natural' or n contains 'naturel' -%}#c6a879
+{%- elsif n contains 'desert' -%}#b89778
+{%- elsif n contains 'starlight' -%}#e5e4e2
+{%- elsif n contains 'midnight' -%}#0f172a
+{%- else -%}#14b8a6{%- endif -%}

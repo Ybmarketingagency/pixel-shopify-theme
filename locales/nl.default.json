@@ -1,0 +1,10 @@
+{
+  "general": {
+    "search": { "placeholder": "Zoek naar iPhone, Samsung..." },
+    "cart": { "title": "Winkelwagen" },
+    "404": { "title": "Pagina niet gevonden" }
+  },
+  "shop": {
+    "name": "Pixel"
+  }
+}

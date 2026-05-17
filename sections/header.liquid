@@ -1,0 +1,148 @@
+{%- assign wa_number = '31624978746' -%}
+{%- assign wa_general = 'https://wa.me/' | append: wa_number | append: '?text=Hoi%20Pixel!%20Ik%20heb%20een%20vraag.' -%}
+
+<header class="sticky top-0 z-40" x-data="{ mobileOpen: false, searchOpen: false }">
+  <!-- Rotating top bar -->
+  <div class="bg-navy-900 text-white text-[11px] md:text-xs" x-data="{ i: 0 }" x-init="setInterval(() => i = (i + 1) % 3, 3000)">
+    <!-- Mobile: 1 rotating bullet -->
+    <div class="md:hidden container-x flex items-center justify-center h-7 overflow-hidden">
+      <template x-if="i === 0">
+        <span class="flex items-center gap-2 animate-fade-in">
+          <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Gratis verzending
+        </span>
+      </template>
+      <template x-if="i === 1">
+        <span class="flex items-center gap-2 animate-fade-in">
+          <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          6 maanden garantie
+        </span>
+      </template>
+      <template x-if="i === 2">
+        <span class="flex items-center gap-2 animate-fade-in">
+          <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          72-punten inspectie
+        </span>
+      </template>
+    </div>
+
+    <!-- Desktop: all 3 at once -->
+    <div class="hidden md:flex container-x items-center justify-center py-2 gap-10">
+      <span class="flex items-center gap-2">
+        <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Gratis verzending
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        6 maanden garantie
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-3.5 h-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        72-punten inspectie
+      </span>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <div class="bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="container-x flex items-center justify-between h-16 gap-4">
+      <a href="/" class="flex-shrink-0">
+        <img src="{{ 'logo.png' | asset_url }}" alt="Pixel" class="h-9 w-auto object-contain">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="/pages/telefoons" class="text-sm font-medium text-slate-700 hover:text-brand-700 transition">Telefoons</a>
+        <a href="/pages/verkopen" class="text-sm font-medium text-slate-700 hover:text-brand-700 transition">Verkopen</a>
+        <a href="/pages/over-ons" class="text-sm font-medium text-slate-700 hover:text-brand-700 transition">Over ons</a>
+        <a href="/pages/klantenservice" class="text-sm font-medium text-slate-700 hover:text-brand-700 transition">Klantenservice</a>
+      </nav>
+
+      <div class="hidden lg:block lg:flex-1 lg:max-w-md">
+        <button type="button" @click="searchOpen = true" class="w-full flex items-center gap-3 pl-10 pr-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 transition text-sm text-slate-500 relative">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Zoek naar iPhone, Samsung...
+        </button>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <button type="button" @click="searchOpen = true" class="lg:hidden p-2 rounded-full hover:bg-slate-100" aria-label="Zoeken">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <a href="{{ wa_general }}" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:scale-[1.02] shadow-sm transition" aria-label="WhatsApp">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+        <a href="{{ wa_general }}" target="_blank" rel="noopener noreferrer" class="sm:hidden p-2 rounded-full bg-emerald-500 text-white" aria-label="WhatsApp">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+
+        <button type="button" @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-full hover:bg-slate-100" aria-label="Menu">
+          <svg x-show="!mobileOpen" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg x-show="mobileOpen" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileOpen" x-transition class="lg:hidden border-t border-slate-200 bg-white" style="display: none;">
+      <div class="container-x py-4 flex flex-col">
+        <a href="/pages/telefoons" class="py-3 font-medium text-slate-700">Telefoons</a>
+        <a href="/pages/verkopen" class="py-3 font-medium text-slate-700">Verkopen</a>
+        <a href="/pages/over-ons" class="py-3 font-medium text-slate-700">Over ons</a>
+        <a href="/pages/klantenservice" class="py-3 font-medium text-slate-700">Klantenservice</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search dialog -->
+  {% render 'pixel-products' %}
+  <div x-show="searchOpen" x-transition.opacity class="fixed inset-0 z-50" x-data="{ q: '' }" style="display: none;" @keydown.escape.window="searchOpen = false">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="searchOpen = false"></div>
+    <div class="relative max-w-2xl mx-auto mt-20 px-4">
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
+        <div class="flex items-center gap-3 px-5 py-4 border-b border-slate-100">
+          <svg class="w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input x-model="q" x-init="$nextTick(() => $el.focus())" placeholder="Zoek op merk, model, kleur of opslag..." class="flex-1 text-lg bg-transparent focus:outline-none" />
+          <button type="button" @click="searchOpen = false" class="p-1.5 rounded-full hover:bg-slate-100" aria-label="Sluiten">
+            <svg class="w-5 h-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="max-h-[60vh] overflow-auto">
+          <div x-show="!q.trim()" class="px-5 py-10 text-center text-slate-500">
+            <p class="text-sm">Begin met typen om telefoons te vinden.</p>
+            <div class="mt-4 flex flex-wrap gap-2 justify-center">
+              <template x-for="s in ['iPhone 15','iPhone 16','Samsung S24','S25 Ultra']" :key="s">
+                <button type="button" @click="q = s" class="px-3 py-1 text-xs rounded-full bg-slate-100 hover:bg-brand-50 hover:text-brand-700 transition" x-text="s"></button>
+              </template>
+            </div>
+          </div>
+
+          {% for p in pixel_products %}
+            {%- assign img = p.slug | prepend: 'p-' | append: '-01.jpg' | asset_url -%}
+            {%- assign hay = p.name | append: ' ' | append: p.brand | append: ' ' | append: p.color | append: ' ' | append: p.storage | downcase -%}
+            <a href="/pages/telefoon?p={{ p.slug }}" data-hay="{{ hay }}" x-show="q.trim() && '{{ hay }}'.includes(q.trim().toLowerCase())" class="flex items-center gap-4 px-5 py-3 hover:bg-slate-50 transition border-b border-slate-50 last:border-0" style="display: none;">
+              <img src="{{ img }}" alt="{{ p.name }}" class="w-14 h-14 rounded-xl object-contain bg-slate-50 flex-shrink-0 p-1">
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-slate-900 truncate">{{ p.name }}</div>
+                <div class="text-xs text-slate-500">{{ p.storage }} · {{ p.color }}</div>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <div class="font-bold gradient-text">€{{ p.price }}</div>
+                <div class="text-xs text-slate-400 line-through">€{{ p.original }}</div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

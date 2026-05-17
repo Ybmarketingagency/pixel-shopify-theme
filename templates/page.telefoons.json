@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "content": { "type": "page-telefoons" }
+  },
+  "order": ["content"]
+}

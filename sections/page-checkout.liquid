@@ -1,0 +1,72 @@
+{%- assign wa_general = 'https://wa.me/31624978746?text=Hoi%20Pixel!%20Ik%20heb%20een%20vraag%20over%20een%20bestelling.' -%}
+
+<section class="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-emerald-50 border-b border-slate-200">
+  <div class="absolute inset-0 -z-10 opacity-60">
+    <div class="absolute top-10 right-10 w-80 h-80 rounded-full bg-emerald-200/40 blur-3xl"></div>
+    <div class="absolute bottom-0 left-10 w-80 h-80 rounded-full bg-brand-200/40 blur-3xl"></div>
+  </div>
+  <div class="container-x py-20 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-sm font-medium mb-6">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Online bestellen volgt binnenkort
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight">Bestel nu via <span style="background: linear-gradient(to right, #10b981, #047857); -webkit-background-clip: text; background-clip: text; color: transparent;">WhatsApp</span></h1>
+    <p class="mt-5 text-lg text-slate-600 max-w-xl mx-auto">We rollen de webshop checkout binnenkort uit. Tot die tijd helpen we je persoonlijk via WhatsApp — snel, eerlijk en zonder gedoe.</p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="{{ wa_general }}" target="_blank" rel="noopener noreferrer" class="btn-wa" style="padding: 1rem 2rem; font-size: 1.125rem;">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Chat op WhatsApp
+      </a>
+      <a href="/pages/telefoons" class="btn-outline">Bekijk telefoons
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <p class="mt-6 text-sm text-slate-500">Of bel ons op <a href="tel:+31624978746" class="font-semibold text-slate-800 hover:text-brand-700">+31 6 24978746</a></p>
+  </div>
+</section>
+
+<section class="container-x py-16">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-black tracking-tight text-center mb-10">Zo werkt het</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {%- assign steps = '1|Stuur je bericht|Kies een telefoon en klik op "Bestel via WhatsApp". We zien meteen welk model je wil.,2|Persoonlijk advies|We checken de voorraad geven advies en bevestigen de prijs.,3|Regelen & leveren|Samen regelen we de betaling en verzending. Klaar is Kees.' | split: ',' -%}
+      {% for s in steps %}
+        {%- assign parts = s | split: '|' -%}
+        <div class="card p-6 relative overflow-hidden">
+          <div class="text-6xl font-black text-slate-100 absolute -top-2 right-4 select-none">{{ parts[0] }}</div>
+          <div class="relative">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3 class="font-bold">{{ parts[1] }}</h3>
+            <p class="text-sm text-slate-600 mt-1">{{ parts[2] }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-10 grid grid-cols-3 gap-3 text-center">
+      <div class="p-4 rounded-2xl bg-slate-50">
+        <svg class="w-5 h-5 text-brand-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="text-xs font-medium">6 maanden garantie</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-50">
+        <svg class="w-5 h-5 text-brand-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span class="text-xs font-medium">Gratis verzending</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-50">
+        <svg class="w-5 h-5 text-brand-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span class="text-xs font-medium">72-punten check</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Checkout placeholder",
+  "settings": [],
+  "presets": [{ "name": "Checkout placeholder" }]
+}
+{% endschema %}

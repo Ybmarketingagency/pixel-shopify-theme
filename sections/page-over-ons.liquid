@@ -1,0 +1,91 @@
+<section class="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-cyan-50">
+  <div class="absolute inset-0 -z-10 opacity-60">
+    <div class="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-brand-300/30 blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-cyan-300/30 blur-3xl"></div>
+  </div>
+  <div class="container-x py-20 md:py-28 text-center">
+    <span class="chip mb-4">
+      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.9 17.3-8.2 17.04zM2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      Onze missie
+    </span>
+    <h1 class="text-5xl md:text-7xl font-black tracking-tight">We maken tech <span class="gradient-text">duurzaam</span></h1>
+    <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">Pixel is geboren uit frustratie. Nieuwe telefoons zijn te duur, worden te snel weggegooid en de planeet betaalt de rekening. Wij doen het anders.</p>
+  </div>
+</section>
+
+<section class="container-x -mt-10 relative z-10">
+  <div class="text-center mb-6">
+    <span class="chip">Onze belofte</span>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {%- assign goals = '72-punten|Inspectie per telefoon,6 maanden|Garantie op elk toestel,85%+|Batterij check,Gratis|Verzending & verpakking' | split: ',' -%}
+    {% for g in goals %}
+      {%- assign parts = g | split: '|' -%}
+      <div class="card p-6 text-center">
+        <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="text-3xl md:text-4xl font-black gradient-text">{{ parts[0] }}</div>
+        <div class="text-xs md:text-sm text-slate-500 mt-1">{{ parts[1] }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container-x grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="chip mb-3">Ons verhaal</span>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight">Refurbished verdient <span class="gradient-text">beter</span></h2>
+      <div class="mt-6 space-y-4 text-slate-600">
+        <p>Pixel is opgericht met één simpele overtuiging: een tweedehands telefoon hoeft niet te voelen als een compromis. Wij geloven dat refurbished net zo premium kan zijn als nieuw — zonder de prijs én zonder de impact op de planeet.</p>
+        <p>Daarom zijn we streng. Elke telefoon die bij ons binnenkomt, wordt getest, gecontroleerd en waar nodig voorzien van nieuwe onderdelen. Wat niet door onze 72-punten check heen komt, verkopen we niet. Zo simpel is het.</p>
+        <p>Ons doel is om mensen te laten zien dat bewust consumeren niet betekent dat je moet inleveren op kwaliteit. Betere tech, lagere prijs, kleinere voetafdruk — en daar zijn we nog maar net mee begonnen.</p>
+      </div>
+      <a href="/pages/telefoons" class="btn-primary mt-8">Bekijk onze telefoons
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-brand-100 to-cyan-100 relative">
+      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Team" class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-slate-50">
+  <div class="container-x">
+    <div class="max-w-2xl mb-12">
+      <span class="chip mb-3">Onze waarden</span>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight">Waar we <span class="gradient-text">voor staan</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {%- assign values = 'Kwaliteit voorop|72 controlepunten. Geen compromissen op wat belangrijk is.,Planet first|Elke telefoon die we refurbishen is een minder in de afvalberg.,Eerlijke prijzen|Transparant, begrijpelijk en altijd de beste deal.' | split: ',' -%}
+      {% for v in values %}
+        {%- assign parts = v | split: '|' -%}
+        <div class="card p-8">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white flex items-center justify-center mb-4 shadow-lg shadow-brand-600/30">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">{{ parts[0] }}</h3>
+          <p class="text-slate-600 text-sm">{{ parts[1] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container-x">
+    <div class="rounded-3xl bg-gradient-to-br from-brand-600 to-cyan-600 p-10 md:p-16 text-white text-center">
+      <svg class="w-10 h-10 mx-auto mb-4 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.9 17.3-8.2 17.04zM2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight max-w-2xl mx-auto">Duurzaamheid zit in alles wat we doen</h2>
+      <p class="mt-4 text-white/90 max-w-xl mx-auto">Eco-verpakking, CO2-neutrale verzending en zoveel mogelijk telefoons een tweede leven geven. Zo willen we stap voor stap bijdragen aan een bewustere tech-industrie.</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Over ons content",
+  "settings": [],
+  "presets": [{ "name": "Over ons content" }]
+}
+{% endschema %}

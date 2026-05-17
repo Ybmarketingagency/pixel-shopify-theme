@@ -1,0 +1,54 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Pixel Refurbished",
+    "theme_version": "1.0.0",
+    "theme_author": "TechAzura",
+    "theme_documentation_url": "https://techazura.nl",
+    "theme_support_url": "https://techazura.nl"
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (overschrijft assets/logo.png)"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon (overschrijft assets/favicon.png)"
+      },
+      {
+        "type": "color",
+        "id": "brand_primary",
+        "label": "Brand primary",
+        "default": "#0d9488"
+      },
+      {
+        "type": "color",
+        "id": "brand_accent",
+        "label": "Brand accent",
+        "default": "#06b6d4"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp nummer (E.164 zonder +)",
+        "default": "31624978746"
+      },
+      {
+        "type": "text",
+        "id": "support_email",
+        "label": "Support email",
+        "default": "hello@pixel.nl"
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+<section class="bg-gradient-to-br from-brand-50 to-cyan-50 border-b border-slate-200">
+  <div class="container-x py-16 text-center">
+    <span class="chip mb-3">Klantenservice</span>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight">Hoe kunnen we <span class="gradient-text">helpen?</span></h1>
+    <div class="mt-8 max-w-xl mx-auto relative" x-data="{ q: '' }">
+      <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input x-model="q" placeholder="Zoek in onze helpcentrum..." class="w-full pl-14 pr-5 py-4 rounded-full bg-white border border-slate-200 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 shadow-sm">
+    </div>
+  </div>
+</section>
+
+<section class="container-x py-16" x-data="{ active: 'orders', open: null }">
+  <div class="grid lg:grid-cols-4 gap-8">
+    <aside class="lg:col-span-1">
+      <div class="card p-4 sticky top-24">
+        {%- assign categories = 'orders|Bestellingen|package,shipping|Verzending|truck,warranty|Garantie|shield,quality|Kwaliteit|check,payment|Betalen|card' | split: ',' -%}
+        {% for c in categories %}
+          {%- assign parts = c | split: '|' -%}
+          <button type="button" @click="active = '{{ parts[0] }}'; open = null" :class="active === '{{ parts[0] }}' ? 'bg-brand-50 text-brand-700' : 'hover:bg-slate-50 text-slate-700'" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-left transition">
+            {% case parts[2] %}
+              {% when 'package' %}<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
+              {% when 'truck' %}<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              {% when 'shield' %}<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {% when 'check' %}<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              {% when 'card' %}<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            {% endcase %}
+            <span class="font-medium">{{ parts[1] }}</span>
+          </button>
+        {% endfor %}
+      </div>
+    </aside>
+
+    <div class="lg:col-span-3">
+      {%- assign faqs = 'orders|Bestellingen|Hoe plaats ik een bestelling?|Kies een telefoon, selecteer je opties en klik op "Bestel via WhatsApp" om persoonlijk afgehandeld te worden.||orders||Kan ik mijn bestelling wijzigen?|Ja, neem binnen 1 uur na je bestelling contact op via WhatsApp.||orders||Welke betaalmethoden accepteren jullie?|We accepteren iDEAL, Bancontact en Apple Pay. Alle betalingen zijn direct.||shipping|Verzending|Hoe snel wordt mijn bestelling geleverd?|Bestellingen voor 22:00 uur worden de volgende werkdag geleverd via PostNL of DHL.||shipping||Is verzending gratis?|Ja, alle bestellingen binnen Nederland en België worden gratis en CO2-neutraal verzonden.||warranty|Garantie|Hoe lang is de garantie?|Elke refurbished telefoon komt met 6 maanden garantie op alle onderdelen en functies.||warranty||Wat valt er onder de garantie?|Alle fabricagefouten en interne defecten. Schade door vallen of vocht valt er niet onder.||quality|Kwaliteit|Wat is de 72-punten check?|Een uitgebreide inspectie op 72 onderdelen: scherm, batterij, camera, knoppen, poorten en alle software-functies.||quality||Hoe goed is de batterij?|We garanderen minimaal 85% batterijcapaciteit op elk toestel.||payment|Betalen|Welke betaalmethoden zijn er?|iDEAL, Bancontact of Apple Pay.||payment||Kan ik achteraf betalen?|Nee, we werken uitsluitend met directe betaalmethoden.' | split: ',' -%}
+
+      <div x-show="active === 'orders'">
+        <h2 class="text-3xl font-black mb-6">Bestellingen</h2>
+        <div class="space-y-3">
+          {% for f in faqs %}
+            {%- assign parts = f | split: '|' -%}
+            {%- if parts[0] == 'orders' and parts[1] != blank or parts[0] == 'orders' and parts[2] != blank -%}
+              {%- assign q = parts[2] -%}
+              {%- assign a = parts[3] -%}
+              {%- if q != blank -%}
+                <div class="card overflow-hidden" x-data="{i: '{{ forloop.index }}'}">
+                  <button type="button" @click="open = (open === '{{ forloop.index }}' ? null : '{{ forloop.index }}')" class="w-full flex items-center justify-between gap-4 p-6 text-left">
+                    <span class="font-semibold">{{ q }}</span>
+                    <svg class="w-5 h-5 flex-shrink-0 transition-transform" :class="open === '{{ forloop.index }}' ? 'rotate-180 text-brand-600' : 'text-slate-400'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div x-show="open === '{{ forloop.index }}'" class="px-6 pb-6 text-slate-600 border-t border-slate-100 pt-4">{{ a }}</div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          {% endfor %}
+        </div>
+      </div>
+
+      {%- assign cats = 'shipping|Verzending,warranty|Garantie,quality|Kwaliteit,payment|Betalen' | split: ',' -%}
+      {% for c in cats %}
+        {%- assign cparts = c | split: '|' -%}
+        <div x-show="active === '{{ cparts[0] }}'">
+          <h2 class="text-3xl font-black mb-6">{{ cparts[1] }}</h2>
+          <div class="space-y-3">
+            {% for f in faqs %}
+              {%- assign parts = f | split: '|' -%}
+              {%- if parts[0] == cparts[0] -%}
+                {%- assign q = parts[2] -%}
+                {%- assign a = parts[3] -%}
+                {%- if q != blank -%}
+                  <div class="card overflow-hidden">
+                    <button type="button" @click="open = (open === '{{ cparts[0] }}-{{ forloop.index }}' ? null : '{{ cparts[0] }}-{{ forloop.index }}')" class="w-full flex items-center justify-between gap-4 p-6 text-left">
+                      <span class="font-semibold">{{ q }}</span>
+                      <svg class="w-5 h-5 flex-shrink-0 transition-transform" :class="open === '{{ cparts[0] }}-{{ forloop.index }}' ? 'rotate-180 text-brand-600' : 'text-slate-400'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div x-show="open === '{{ cparts[0] }}-{{ forloop.index }}'" class="px-6 pb-6 text-slate-600 border-t border-slate-100 pt-4">{{ a }}</div>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Klantenservice content",
+  "settings": [],
+  "presets": [{ "name": "Klantenservice content" }]
+}
+{% endschema %}

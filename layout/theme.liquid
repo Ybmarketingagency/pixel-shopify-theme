@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d2438">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">
+    {%- else -%}
+      <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+    {%- endif -%}
+    <link rel="apple-touch-icon" href="{{ 'favicon.png' | asset_url }}">
+
+    <title>{%- if page_title -%}{{ page_title }} | {%- endif -%}{{ shop.name }}</title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- else -%}
+      <meta name="description" content="Premium refurbished telefoons met 6 maanden garantie en gratis verzending. Tot 70% korting.">
+    {%- endif -%}
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page_title | default: shop.name }}">
+    <meta property="og:description" content="Premium refurbished iPhones &amp; Samsungs. Tot 70% korting.">
+    <meta property="og:image" content="{{ 'logo.png' | asset_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50:  '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+                400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e',
+                800: '#115e59', 900: '#134e4a', 950: '#042f2e'
+              },
+              navy: { 900: '#0d2438', 800: '#123048', 700: '#1a3d5c' }
+            },
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            keyframes: {
+              float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+              fadeIn: { from: { opacity: 0, transform: 'translateY(4px)' }, to: { opacity: 1, transform: 'translateY(0)' } }
+            },
+            animation: { float: 'float 6s ease-in-out infinite', fadeIn: 'fadeIn 0.4s ease' }
+          }
+        }
+      };
+    </script>
+
+    <link rel="stylesheet" href="{{ 'pixel-styles.css' | asset_url }}">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {{ content_for_header }}
+  </head>
+  <body class="bg-white text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+    {% section 'header' %}
+
+    <main id="MainContent" class="flex-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    <script src="{{ 'pixel-app.js' | asset_url }}" defer></script>
+  </body>
+</html>

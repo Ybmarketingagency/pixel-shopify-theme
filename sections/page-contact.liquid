@@ -1,0 +1,116 @@
+<section class="bg-gradient-to-br from-brand-50 to-cyan-50 border-b border-slate-200">
+  <div class="container-x py-16 text-center">
+    <span class="chip mb-3">Contact</span>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight">Neem <span class="gradient-text">contact</span> op</h1>
+    <p class="mt-4 text-slate-600 max-w-xl mx-auto">Vragen over een bestelling, product of onze service? We staan klaar om te helpen.</p>
+  </div>
+</section>
+
+<section class="container-x py-16">
+  <div class="grid lg:grid-cols-3 gap-8">
+    <div class="space-y-4">
+      <div class="card p-6">
+        <div class="w-11 h-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3 class="font-bold">Mail ons</h3>
+        <p class="mt-1 font-medium">hello@pixel.nl</p>
+        <p class="text-xs text-slate-500 mt-1">Antwoord binnen 24 uur</p>
+      </div>
+
+      <div class="card p-6">
+        <div class="w-11 h-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3 class="font-bold">Bel ons</h3>
+        <p class="mt-1 font-medium">+31 6 24978746</p>
+        <p class="text-xs text-slate-500 mt-1">Ma-Vr 09:00 – 18:00</p>
+      </div>
+
+      <div class="card p-6">
+        <div class="w-11 h-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="font-bold">Bezoek ons</h3>
+        <p class="mt-1 font-medium">Amersfoort</p>
+        <p class="text-xs text-slate-500 mt-1">Alleen op afspraak</p>
+      </div>
+
+      <div class="card p-6">
+        <div class="flex items-center gap-2 font-bold mb-3">
+          <svg class="w-4 h-4 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Openingstijden
+        </div>
+        <div class="text-sm text-slate-600 space-y-1">
+          <div class="flex justify-between"><span>Ma - Vr</span><span class="font-medium">09:00 - 18:00</span></div>
+          <div class="flex justify-between"><span>Zaterdag</span><span class="font-medium">10:00 - 17:00</span></div>
+          <div class="flex justify-between text-slate-400"><span>Zondag</span><span>Gesloten</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2" x-data="{ sent: false }">
+      <div class="card p-8 md:p-10">
+        <template x-if="!sent">
+          <form @submit.prevent="sent = true" class="space-y-5">
+            <h2 class="text-2xl font-bold">Stuur ons een bericht</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium mb-1.5">Voornaam *</label>
+                <input class="input" placeholder="Jan" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1.5">Achternaam *</label>
+                <input class="input" placeholder="Janssen" required>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">E-mailadres *</label>
+              <input type="email" class="input" placeholder="jan@voorbeeld.nl" required>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium mb-1.5">Onderwerp *</label>
+                <select class="input" required>
+                  <option value="">Kies een onderwerp</option>
+                  <option>Bestelling</option>
+                  <option>Garantie</option>
+                  <option>Verkopen</option>
+                  <option>Product vraag</option>
+                  <option>Overig</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1.5">Bestelnummer</label>
+                <input class="input" placeholder="PXL-12345">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">Bericht *</label>
+              <textarea rows="5" class="input resize-none" placeholder="Waar kunnen we je mee helpen?" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full sm:w-auto">Bericht versturen</button>
+          </form>
+        </template>
+        <template x-if="sent">
+          <div class="text-center py-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold">Bedankt voor je bericht!</h3>
+            <p class="text-slate-600 mt-2">We nemen binnen 24 uur contact met je op.</p>
+            <button type="button" @click="sent = false" class="btn-outline mt-6">Nieuw bericht</button>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact content",
+  "settings": [],
+  "presets": [{ "name": "Contact content" }]
+}
+{% endschema %}

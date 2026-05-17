@@ -1,0 +1,38 @@
+{%- comment -%}
+  Pixel — hardcoded product catalog.
+  Each product is a JSON object so we can `parse_json` once and loop.
+  Image asset filenames: p-{slug}-{01..06}.jpg
+  Sold flag: true/false.
+  Usage:
+    {% render 'pixel-products' %}
+    Then `pixel_products` is available downstream when this is included with
+    a parent block that re-exposes it. Easier: include this snippet at the
+    top of every section that needs it, and the JSON parses each time.
+{%- endcomment -%}
+
+{%- capture pixel_products_json -%}
+[
+  {"slug":"iphone-13","name":"iPhone 13","brand":"Apple","storage":"128GB","color":"Blauw","battery":92,"price":249,"original":729,"rating":4.7,"reviews":142,"sold":false,"description":"iPhone 13 met krachtige A15 Bionic chip, dual-camera en Super Retina XDR display."},
+  {"slug":"iphone-13-pro","name":"iPhone 13 Pro","brand":"Apple","storage":"128GB","color":"Blauw","battery":90,"price":289,"original":1159,"rating":4.8,"reviews":98,"sold":true,"description":"iPhone 13 Pro met Pro camerasysteem, ProMotion display en A15 Bionic chip."},
+  {"slug":"iphone-13-pro-max","name":"iPhone 13 Pro Max","brand":"Apple","storage":"256GB","color":"Goud","battery":91,"price":379,"original":1389,"rating":4.9,"reviews":84,"sold":true,"description":"iPhone 13 Pro Max met 6,7\" ProMotion display en Pro camerasysteem."},
+  {"slug":"iphone-14-pro","name":"iPhone 14 Pro","brand":"Apple","storage":"128GB","color":"Zwart","battery":93,"price":399,"original":1329,"rating":4.9,"reviews":167,"sold":false,"description":"iPhone 14 Pro met Dynamic Island, Always-On display en 48MP hoofdcamera."},
+  {"slug":"iphone-14-pro-max","name":"iPhone 14 Pro Max","brand":"Apple","storage":"256GB","color":"Zwart","battery":94,"price":489,"original":1629,"rating":4.9,"reviews":112,"sold":false,"description":"iPhone 14 Pro Max met 6,7\" Super Retina XDR display en Dynamic Island."},
+  {"slug":"iphone-15","name":"iPhone 15","brand":"Apple","storage":"128GB","color":"Zwart","battery":96,"price":339,"original":969,"rating":4.8,"reviews":91,"sold":false,"description":"iPhone 15 met USB-C, Dynamic Island en 48MP hoofdcamera."},
+  {"slug":"iphone-15-plus","name":"iPhone 15 Plus","brand":"Apple","storage":"128GB","color":"Roze","battery":95,"price":389,"original":1149,"rating":4.8,"reviews":54,"sold":false,"description":"iPhone 15 Plus met 6,7\" display, USB-C en premium dual-camerasysteem."},
+  {"slug":"iphone-15-pro-black","name":"iPhone 15 Pro","brand":"Apple","storage":"128GB","color":"Black Titanium","battery":97,"price":469,"original":1229,"rating":4.9,"reviews":189,"sold":false,"description":"iPhone 15 Pro in Black Titanium met A17 Pro chip en titanium behuizing."},
+  {"slug":"iphone-15-pro-white","name":"iPhone 15 Pro","brand":"Apple","storage":"128GB","color":"White Titanium","battery":97,"price":469,"original":1229,"rating":4.9,"reviews":143,"sold":false,"description":"iPhone 15 Pro in White Titanium met A17 Pro chip en 48MP Pro camerasysteem."},
+  {"slug":"iphone-15-pro-natural","name":"iPhone 15 Pro","brand":"Apple","storage":"128GB","color":"Natural Titanium","battery":97,"price":519,"original":1229,"rating":4.9,"reviews":201,"sold":false,"description":"iPhone 15 Pro in Natural Titanium — licht, sterk en krachtig met A17 Pro chip."},
+  {"slug":"iphone-15-pro-max","name":"iPhone 15 Pro Max","brand":"Apple","storage":"256GB","color":"Blue Titanium","battery":96,"price":649,"original":1449,"rating":5.0,"reviews":178,"sold":false,"description":"iPhone 15 Pro Max met 5x telefoto lens, titanium frame en A17 Pro chip."},
+  {"slug":"iphone-16","name":"iPhone 16","brand":"Apple","storage":"128GB","color":"Zwart","battery":98,"price":469,"original":969,"rating":4.9,"reviews":63,"sold":false,"description":"iPhone 16 met A18 chip, Apple Intelligence en verbeterd dual-camerasysteem."},
+  {"slug":"iphone-16-pro","name":"iPhone 16 Pro","brand":"Apple","storage":"128GB","color":"Zwart","battery":99,"price":599,"original":1229,"rating":5.0,"reviews":47,"sold":false,"description":"iPhone 16 Pro met A18 Pro chip, 48MP Fusion camera en Camera Control."},
+  {"slug":"iphone-16-pro-max","name":"iPhone 16 Pro Max","brand":"Apple","storage":"256GB","color":"Desert Titanium","battery":99,"price":699,"original":1479,"rating":5.0,"reviews":38,"sold":false,"description":"iPhone 16 Pro Max in Desert Titanium — het meest geavanceerde iPhone model ooit."},
+  {"slug":"samsung-s22-ultra","name":"Samsung Galaxy S22 Ultra","brand":"Samsung","storage":"256GB","color":"Groen","battery":89,"price":349,"original":1249,"rating":4.7,"reviews":132,"sold":true,"description":"Galaxy S22 Ultra met ingebouwde S Pen, 108MP camera en 100x Space Zoom."},
+  {"slug":"samsung-s23-ultra","name":"Samsung Galaxy S23 Ultra","brand":"Samsung","storage":"256GB","color":"Zwart","battery":93,"price":449,"original":1399,"rating":4.8,"reviews":118,"sold":true,"description":"Galaxy S23 Ultra met 200MP hoofdcamera, S Pen en Snapdragon 8 Gen 2."},
+  {"slug":"samsung-s24-grey","name":"Samsung Galaxy S24","brand":"Samsung","storage":"128GB","color":"Grijs","battery":95,"price":449,"original":899,"rating":4.7,"reviews":76,"sold":true,"description":"Galaxy S24 met Galaxy AI, Exynos 2400 en slanke titanium look."},
+  {"slug":"samsung-s24-black","name":"Samsung Galaxy S24","brand":"Samsung","storage":"128GB","color":"Zwart","battery":95,"price":449,"original":899,"rating":4.7,"reviews":89,"sold":true,"description":"Galaxy S24 met Galaxy AI-functies, triple camera en 6,2\" Dynamic AMOLED."},
+  {"slug":"samsung-s25-ultra-grey","name":"Samsung Galaxy S25 Ultra","brand":"Samsung","storage":"256GB","color":"Titanium Grijs","battery":98,"price":849,"original":1499,"rating":5.0,"reviews":52,"sold":true,"description":"Galaxy S25 Ultra in Titanium Grijs met Snapdragon 8 Elite en 200MP camera."},
+  {"slug":"samsung-s25-ultra-white","name":"Samsung Galaxy S25 Ultra","brand":"Samsung","storage":"256GB","color":"Titanium Wit","battery":98,"price":849,"original":1499,"rating":5.0,"reviews":41,"sold":true,"description":"Galaxy S25 Ultra in Titanium Wit — premium design met Galaxy AI."}
+]
+{%- endcapture -%}
+
+{%- assign pixel_products = pixel_products_json | parse_json -%}

@@ -1,0 +1,8 @@
+<div class="container-x py-16 max-w-xl text-center">
+  <h1 class="text-3xl font-black tracking-tight mb-4">Pixel cadeaubon</h1>
+  <div class="card p-8">
+    <p class="text-slate-600 mb-4">Bedankt voor je aankoop. Hieronder vind je je cadeaubon-code.</p>
+    <div class="text-2xl font-mono font-bold gradient-text">{{ gift_card.code | format_code }}</div>
+    <div class="mt-4 text-lg font-semibold">{{ gift_card.balance | money }}</div>
+  </div>
+</div>

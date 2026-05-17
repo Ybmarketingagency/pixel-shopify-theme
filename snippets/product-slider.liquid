@@ -1,0 +1,33 @@
+{%- comment -%}
+  Horizontal snap-scrolling product slider with arrows.
+  Usage:
+    {% render 'product-slider', products: list, slider_id: 'iphones' %}
+  Uses small inline JS bound to data attributes (defined in pixel-app.js).
+{%- endcomment -%}
+<div class="relative" data-slider="{{ slider_id }}">
+  <button type="button" data-slider-prev class="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 items-center justify-center transition hover:scale-110 hover:border-brand-500 hover:text-brand-700" aria-label="Scroll links">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button type="button" data-slider-next class="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-slate-200 items-center justify-center transition hover:scale-110 hover:border-brand-500 hover:text-brand-700" aria-label="Scroll rechts">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <div data-slider-track class="no-scrollbar flex gap-5 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth">
+    {% for p in products %}
+      <div class="snap-start flex-shrink-0 w-[70%] sm:w-[45%] md:w-[33%] lg:w-[24%]">
+        {% render 'product-card', product: p %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {%- comment -%} Mobile controls under track {%- endcomment -%}
+  <div class="md:hidden mt-5 flex items-center justify-center gap-3">
+    <button type="button" data-slider-prev class="w-11 h-11 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center hover:border-brand-500 hover:text-brand-700" aria-label="Vorige">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button type="button" data-slider-next class="inline-flex items-center gap-1.5 px-5 h-11 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-md hover:scale-[1.02]" aria-label="Meer">
+      Meer telefoons
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
