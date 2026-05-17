@@ -96,7 +96,8 @@
   </div>
 
   <!-- Search dialog -->
-  {% render 'pixel-products' %}
+  {%- capture pp_json -%}{% render 'pixel-products' %}{%- endcapture -%}
+  {%- assign pixel_products = pp_json | parse_json -%}
   <div x-show="searchOpen" x-transition.opacity class="fixed inset-0 z-50" x-data="{ q: '' }" style="display: none;" @keydown.escape.window="searchOpen = false">
     <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="searchOpen = false"></div>
     <div class="relative max-w-2xl mx-auto mt-20 px-4">

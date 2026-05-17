@@ -1,4 +1,5 @@
-{% render 'pixel-products' %}
+{%- capture pp_json -%}{% render 'pixel-products' %}{%- endcapture -%}
+{%- assign pixel_products = pp_json | parse_json -%}
 
 <section class="relative overflow-hidden bg-slate-950 text-white">
   <div class="absolute inset-0 -z-10 opacity-40">

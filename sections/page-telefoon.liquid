@@ -1,4 +1,5 @@
-{% render 'pixel-products' %}
+{%- capture pp_json -%}{% render 'pixel-products' %}{%- endcapture -%}
+{%- assign pixel_products = pp_json | parse_json -%}
 {%- assign wa_number = '31624978746' -%}
 
 <!-- All products rendered, only the matching one is shown via JS based on ?p= param -->
