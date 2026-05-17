@@ -18,8 +18,9 @@
   {%- assign discount = product.original | minus: product.price | times: 100 | divided_by: product.original -%}
   {%- assign saving = product.original | minus: product.price -%}
   {%- assign related = pixel_products | where: 'brand', product.brand -%}
-  {%- assign wa_msg = 'Hoi Pixel! Ik wil graag de ' | append: product.name | append: ' (' | append: product.storage | append: ' · ' | append: product.color | append: ') bestellen voor €' | append: product.price | append: '. Kunnen jullie mij helpen?' -%}
-  {%- assign wa_href = 'https://wa.me/' | append: wa_number | append: '?text=' | append: wa_msg | url_encode -%}
+  {%- assign wa_msg = 'Hoi Pixel! Ik wil graag de ' | append: product.name | append: ' (' | append: product.storage | append: ' - ' | append: product.color | append: ') bestellen voor EUR ' | append: product.price | append: '. Kunnen jullie mij helpen?' -%}
+  {%- assign wa_msg_enc = wa_msg | url_encode -%}
+  {%- assign wa_href = 'https://wa.me/' | append: wa_number | append: '?text=' | append: wa_msg_enc -%}
   {%- capture color_css -%}{% render 'color-swatch', name: product.color %}{%- endcapture -%}
 
   <div data-product-page="{{ product.slug }}" style="display: none;">

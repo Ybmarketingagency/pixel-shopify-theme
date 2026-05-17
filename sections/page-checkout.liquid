@@ -11,7 +11,7 @@
       Online bestellen volgt binnenkort
     </div>
     <h1 class="text-4xl md:text-6xl font-black tracking-tight">Bestel nu via <span style="background: linear-gradient(to right, #10b981, #047857); -webkit-background-clip: text; background-clip: text; color: transparent;">WhatsApp</span></h1>
-    <p class="mt-5 text-lg text-slate-600 max-w-xl mx-auto">We rollen de webshop checkout binnenkort uit. Tot die tijd helpen we je persoonlijk via WhatsApp — snel, eerlijk en zonder gedoe.</p>
+    <p class="mt-5 text-lg text-slate-600 max-w-xl mx-auto">We rollen de webshop checkout binnenkort uit. Tot die tijd helpen we je persoonlijk via WhatsApp &mdash; snel, eerlijk en zonder gedoe.</p>
 
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
       <a href="{{ wa_general }}" target="_blank" rel="noopener noreferrer" class="btn-wa" style="padding: 1rem 2rem; font-size: 1.125rem;">
@@ -30,20 +30,30 @@
   <div class="max-w-3xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-black tracking-tight text-center mb-10">Zo werkt het</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      {%- assign steps = '1|Stuur je bericht|Kies een telefoon en klik op "Bestel via WhatsApp". We zien meteen welk model je wil.,2|Persoonlijk advies|We checken de voorraad geven advies en bevestigen de prijs.,3|Regelen & leveren|Samen regelen we de betaling en verzending. Klaar is Kees.' | split: ',' -%}
-      {% for s in steps %}
-        {%- assign parts = s | split: '|' -%}
-        <div class="card p-6 relative overflow-hidden">
-          <div class="text-6xl font-black text-slate-100 absolute -top-2 right-4 select-none">{{ parts[0] }}</div>
-          <div class="relative">
-            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <h3 class="font-bold">{{ parts[1] }}</h3>
-            <p class="text-sm text-slate-600 mt-1">{{ parts[2] }}</p>
-          </div>
+      <div class="card p-6 relative overflow-hidden">
+        <div class="text-6xl font-black text-slate-100 absolute -top-2 right-4 select-none">1</div>
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3 class="font-bold">Stuur je bericht</h3>
+          <p class="text-sm text-slate-600 mt-1">Kies een telefoon en klik op &lsquo;Bestel via WhatsApp&rsquo;. We zien meteen welk model je wil.</p>
         </div>
-      {% endfor %}
+      </div>
+      <div class="card p-6 relative overflow-hidden">
+        <div class="text-6xl font-black text-slate-100 absolute -top-2 right-4 select-none">2</div>
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3 class="font-bold">Persoonlijk advies</h3>
+          <p class="text-sm text-slate-600 mt-1">We checken de voorraad, geven advies en bevestigen de prijs.</p>
+        </div>
+      </div>
+      <div class="card p-6 relative overflow-hidden">
+        <div class="text-6xl font-black text-slate-100 absolute -top-2 right-4 select-none">3</div>
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3 class="font-bold">Regelen &amp; leveren</h3>
+          <p class="text-sm text-slate-600 mt-1">Samen regelen we de betaling en verzending. Klaar is Kees.</p>
+        </div>
+      </div>
     </div>
 
     <div class="mt-10 grid grid-cols-3 gap-3 text-center">
@@ -52,7 +62,7 @@
         <span class="text-xs font-medium">6 maanden garantie</span>
       </div>
       <div class="p-4 rounded-2xl bg-slate-50">
-        <svg class="w-5 h-5 text-brand-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <svg class="w-5 h-5 text-brand-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
         <span class="text-xs font-medium">Gratis verzending</span>
       </div>
       <div class="p-4 rounded-2xl bg-slate-50">
@@ -64,9 +74,5 @@
 </section>
 
 {% schema %}
-{
-  "name": "Checkout placeholder",
-  "settings": [],
-  "presets": [{ "name": "Checkout placeholder" }]
-}
+{ "name": "Checkout placeholder", "settings": [], "presets": [{ "name": "Checkout placeholder" }] }
 {% endschema %}

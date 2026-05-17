@@ -19,7 +19,6 @@
 <section class="container-x py-10" x-data="{
   brands: [],
   maxPrice: 1500,
-  sort: 'featured',
   open: false,
   toggleBrand(b) { this.brands = this.brands.includes(b) ? this.brands.filter(x => x !== b) : [...this.brands, b]; },
   init() {
@@ -50,10 +49,10 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-sm mb-3">Max prijs: €<span x-text="maxPrice"></span></h4>
+          <h4 class="font-semibold text-sm mb-3">Max prijs: &euro;<span x-text="maxPrice"></span></h4>
           <input type="range" min="200" max="1500" step="50" x-model.number="maxPrice" class="w-full accent-brand-600">
           <div class="flex justify-between text-xs text-slate-400 mt-1">
-            <span>€200</span><span>€1500</span>
+            <span>&euro;200</span><span>&euro;1500</span>
           </div>
         </div>
 
@@ -66,57 +65,23 @@
         <div class="text-sm text-slate-600">
           <strong class="text-slate-900">{{ pixel_products | size }}</strong> telefoons beschikbaar
         </div>
-        <div class="flex items-center gap-3">
-          <button type="button" @click="open = !open" class="lg:hidden btn-outline" style="padding: .5rem 1rem;">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-            Filters
-          </button>
-          <select x-model="sort" class="input" style="padding: .5rem 1rem; width: auto;">
-            <option value="featured">Aanbevolen</option>
-            <option value="price-asc">Prijs: laag → hoog</option>
-            <option value="price-desc">Prijs: hoog → laag</option>
-            <option value="rating">Best beoordeeld</option>
-          </select>
-        </div>
+        <button type="button" @click="open = !open" class="lg:hidden btn-outline" style="padding: .5rem 1rem;">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+          Filters
+        </button>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-5" x-data="{
-        all: [
-          {% for p in pixel_products -%}
-            { slug: '{{ p.slug }}', brand: '{{ p.brand }}', price: {{ p.price }}, rating: {{ p.rating }} }{%- unless forloop.last %},{% endunless %}
-          {%- endfor %}
-        ]
-      }" x-init="$watch('$el.parentElement.parentElement', () => {})">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
         {% for p in pixel_products %}
-          <div data-product-slug="{{ p.slug }}" data-brand="{{ p.brand }}" data-price="{{ p.price }}" data-rating="{{ p.rating }}" x-show="(brands.length === 0 || brands.includes('{{ p.brand }}')) && {{ p.price }} <= maxPrice" class="filter-item" style="display: none;">
+          <div x-show="(brands.length === 0 || brands.includes('{{ p.brand }}')) && {{ p.price }} <= maxPrice">
             {% render 'product-card', product: p %}
           </div>
         {% endfor %}
       </div>
-
-      <div id="empty-state" class="hidden card p-12 text-center">
-        <p class="text-slate-500">Geen producten gevonden met deze filters.</p>
-      </div>
     </div>
   </div>
-
-  <script>
-    // Bridge Alpine state with sort + visible count
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('telefoons', () => ({
-        get visible() {
-          return Array.from(document.querySelectorAll('.filter-item'))
-            .filter(el => el.offsetParent !== null);
-        }
-      }));
-    });
-  </script>
 </section>
 
 {% schema %}
-{
-  "name": "Telefoons listing",
-  "settings": [],
-  "presets": [{ "name": "Telefoons listing" }]
-}
+{ "name": "Telefoons listing", "settings": [], "presets": [{ "name": "Telefoons listing" }] }
 {% endschema %}

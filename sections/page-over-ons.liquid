@@ -4,29 +4,35 @@
     <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-cyan-300/30 blur-3xl"></div>
   </div>
   <div class="container-x py-20 md:py-28 text-center">
-    <span class="chip mb-4">
-      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.9 17.3-8.2 17.04zM2 21c0-3 1.85-5.36 5.08-6"/></svg>
-      Onze missie
-    </span>
+    <span class="chip mb-4">Onze missie</span>
     <h1 class="text-5xl md:text-7xl font-black tracking-tight">We maken tech <span class="gradient-text">duurzaam</span></h1>
     <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">Pixel is geboren uit frustratie. Nieuwe telefoons zijn te duur, worden te snel weggegooid en de planeet betaalt de rekening. Wij doen het anders.</p>
   </div>
 </section>
 
 <section class="container-x -mt-10 relative z-10">
-  <div class="text-center mb-6">
-    <span class="chip">Onze belofte</span>
-  </div>
+  <div class="text-center mb-6"><span class="chip">Onze belofte</span></div>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    {%- assign goals = '72-punten|Inspectie per telefoon,6 maanden|Garantie op elk toestel,85%+|Batterij check,Gratis|Verzending & verpakking' | split: ',' -%}
-    {% for g in goals %}
-      {%- assign parts = g | split: '|' -%}
-      <div class="card p-6 text-center">
-        <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <div class="text-3xl md:text-4xl font-black gradient-text">{{ parts[0] }}</div>
-        <div class="text-xs md:text-sm text-slate-500 mt-1">{{ parts[1] }}</div>
-      </div>
-    {% endfor %}
+    <div class="card p-6 text-center">
+      <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="text-3xl md:text-4xl font-black gradient-text">72-punten</div>
+      <div class="text-xs md:text-sm text-slate-500 mt-1">Inspectie per telefoon</div>
+    </div>
+    <div class="card p-6 text-center">
+      <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="text-3xl md:text-4xl font-black gradient-text">6 maanden</div>
+      <div class="text-xs md:text-sm text-slate-500 mt-1">Garantie op elk toestel</div>
+    </div>
+    <div class="card p-6 text-center">
+      <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/></svg>
+      <div class="text-3xl md:text-4xl font-black gradient-text">85%+</div>
+      <div class="text-xs md:text-sm text-slate-500 mt-1">Batterij check</div>
+    </div>
+    <div class="card p-6 text-center">
+      <svg class="w-6 h-6 text-brand-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+      <div class="text-3xl md:text-4xl font-black gradient-text">Gratis</div>
+      <div class="text-xs md:text-sm text-slate-500 mt-1">Verzending &amp; verpakking</div>
+    </div>
   </div>
 </section>
 
@@ -36,16 +42,16 @@
       <span class="chip mb-3">Ons verhaal</span>
       <h2 class="text-3xl md:text-5xl font-black tracking-tight">Refurbished verdient <span class="gradient-text">beter</span></h2>
       <div class="mt-6 space-y-4 text-slate-600">
-        <p>Pixel is opgericht met één simpele overtuiging: een tweedehands telefoon hoeft niet te voelen als een compromis. Wij geloven dat refurbished net zo premium kan zijn als nieuw — zonder de prijs én zonder de impact op de planeet.</p>
+        <p>Pixel is opgericht met &eacute;&eacute;n simpele overtuiging: een tweedehands telefoon hoeft niet te voelen als een compromis. Wij geloven dat refurbished net zo premium kan zijn als nieuw &mdash; zonder de prijs &eacute;n zonder de impact op de planeet.</p>
         <p>Daarom zijn we streng. Elke telefoon die bij ons binnenkomt, wordt getest, gecontroleerd en waar nodig voorzien van nieuwe onderdelen. Wat niet door onze 72-punten check heen komt, verkopen we niet. Zo simpel is het.</p>
-        <p>Ons doel is om mensen te laten zien dat bewust consumeren niet betekent dat je moet inleveren op kwaliteit. Betere tech, lagere prijs, kleinere voetafdruk — en daar zijn we nog maar net mee begonnen.</p>
+        <p>Ons doel is om mensen te laten zien dat bewust consumeren niet betekent dat je moet inleveren op kwaliteit. Betere tech, lagere prijs, kleinere voetafdruk &mdash; en daar zijn we nog maar net mee begonnen.</p>
       </div>
       <a href="/pages/telefoons" class="btn-primary mt-8">Bekijk onze telefoons
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
     <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-brand-100 to-cyan-100 relative">
-      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Team" class="w-full h-full object-cover">
+      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&amp;q=80" alt="Team" class="w-full h-full object-cover">
     </div>
   </div>
 </section>
@@ -57,17 +63,21 @@
       <h2 class="text-3xl md:text-5xl font-black tracking-tight">Waar we <span class="gradient-text">voor staan</span></h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
-      {%- assign values = 'Kwaliteit voorop|72 controlepunten. Geen compromissen op wat belangrijk is.,Planet first|Elke telefoon die we refurbishen is een minder in de afvalberg.,Eerlijke prijzen|Transparant, begrijpelijk en altijd de beste deal.' | split: ',' -%}
-      {% for v in values %}
-        {%- assign parts = v | split: '|' -%}
-        <div class="card p-8">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white flex items-center justify-center mb-4 shadow-lg shadow-brand-600/30">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-2">{{ parts[0] }}</h3>
-          <p class="text-slate-600 text-sm">{{ parts[1] }}</p>
-        </div>
-      {% endfor %}
+      <div class="card p-8">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white flex items-center justify-center mb-4 shadow-lg shadow-brand-600/30"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="text-xl font-bold mb-2">Kwaliteit voorop</h3>
+        <p class="text-slate-600 text-sm">72 controlepunten. Geen compromissen op wat belangrijk is.</p>
+      </div>
+      <div class="card p-8">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white flex items-center justify-center mb-4 shadow-lg shadow-brand-600/30"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.9 17.3-8.2 17.04zM2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+        <h3 class="text-xl font-bold mb-2">Planet first</h3>
+        <p class="text-slate-600 text-sm">Elke telefoon die we refurbishen is een minder in de afvalberg.</p>
+      </div>
+      <div class="card p-8">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white flex items-center justify-center mb-4 shadow-lg shadow-brand-600/30"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h3 class="text-xl font-bold mb-2">Eerlijke prijzen</h3>
+        <p class="text-slate-600 text-sm">Transparant, begrijpelijk en altijd de beste deal.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -83,9 +93,5 @@
 </section>
 
 {% schema %}
-{
-  "name": "Over ons content",
-  "settings": [],
-  "presets": [{ "name": "Over ons content" }]
-}
+{ "name": "Over ons content", "settings": [], "presets": [{ "name": "Over ons content" }] }
 {% endschema %}

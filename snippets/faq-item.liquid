@@ -1,0 +1,11 @@
+{%- comment -%}
+  Usage: {% render 'faq-item', q: 'vraag', a: 'antwoord', k: 'uniek-id' %}
+  Requires Alpine `open` variable on a parent x-data scope.
+{%- endcomment -%}
+<div class="card overflow-hidden">
+  <button type="button" @click="open = (open === '{{ k }}' ? null : '{{ k }}')" class="w-full flex items-center justify-between gap-4 p-6 text-left">
+    <span class="font-semibold">{{ q }}</span>
+    <svg class="w-5 h-5 flex-shrink-0 transition-transform" :class="open === '{{ k }}' ? 'rotate-180 text-brand-600' : 'text-slate-400'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div x-show="open === '{{ k }}'" class="px-6 pb-6 text-slate-600 border-t border-slate-100 pt-4" x-cloak>{{ a }}</div>
+</div>
