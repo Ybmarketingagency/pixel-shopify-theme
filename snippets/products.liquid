@@ -1,0 +1,31 @@
+{%- comment -%}
+  Master product list. Renders product cards filtered by `brand_filter`.
+  Pass: brand_filter = 'Apple' | 'Samsung' | 'all'
+  Replaces the old pixel-products + parse_json pattern.
+{%- endcomment -%}
+
+{%- if brand_filter == 'all' or brand_filter == 'Apple' -%}
+  {% render 'product-card', slug: 'iphone-13', name: 'iPhone 13', brand: 'Apple', storage: '128GB', color: 'Blauw', battery: 92, price: 249, original: 729, rating: 4.7, sold: false %}
+  {% render 'product-card', slug: 'iphone-13-pro', name: 'iPhone 13 Pro', brand: 'Apple', storage: '128GB', color: 'Blauw', battery: 90, price: 289, original: 1159, rating: 4.8, sold: true %}
+  {% render 'product-card', slug: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max', brand: 'Apple', storage: '256GB', color: 'Goud', battery: 91, price: 379, original: 1389, rating: 4.9, sold: true %}
+  {% render 'product-card', slug: 'iphone-14-pro', name: 'iPhone 14 Pro', brand: 'Apple', storage: '128GB', color: 'Zwart', battery: 93, price: 399, original: 1329, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-14-pro-max', name: 'iPhone 14 Pro Max', brand: 'Apple', storage: '256GB', color: 'Zwart', battery: 94, price: 489, original: 1629, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-15', name: 'iPhone 15', brand: 'Apple', storage: '128GB', color: 'Zwart', battery: 96, price: 339, original: 969, rating: 4.8, sold: false %}
+  {% render 'product-card', slug: 'iphone-15-plus', name: 'iPhone 15 Plus', brand: 'Apple', storage: '128GB', color: 'Roze', battery: 95, price: 389, original: 1149, rating: 4.8, sold: false %}
+  {% render 'product-card', slug: 'iphone-15-pro-black', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'Black Titanium', battery: 97, price: 469, original: 1229, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-15-pro-white', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'White Titanium', battery: 97, price: 469, original: 1229, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-15-pro-natural', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'Natural Titanium', battery: 97, price: 519, original: 1229, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-15-pro-max', name: 'iPhone 15 Pro Max', brand: 'Apple', storage: '256GB', color: 'Blue Titanium', battery: 96, price: 649, original: 1449, rating: 5.0, sold: false %}
+  {% render 'product-card', slug: 'iphone-16', name: 'iPhone 16', brand: 'Apple', storage: '128GB', color: 'Zwart', battery: 98, price: 469, original: 969, rating: 4.9, sold: false %}
+  {% render 'product-card', slug: 'iphone-16-pro', name: 'iPhone 16 Pro', brand: 'Apple', storage: '128GB', color: 'Zwart', battery: 99, price: 599, original: 1229, rating: 5.0, sold: false %}
+  {% render 'product-card', slug: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max', brand: 'Apple', storage: '256GB', color: 'Desert Titanium', battery: 99, price: 699, original: 1479, rating: 5.0, sold: false %}
+{%- endif -%}
+
+{%- if brand_filter == 'all' or brand_filter == 'Samsung' -%}
+  {% render 'product-card', slug: 'samsung-s22-ultra', name: 'Samsung Galaxy S22 Ultra', brand: 'Samsung', storage: '256GB', color: 'Groen', battery: 89, price: 349, original: 1249, rating: 4.7, sold: true %}
+  {% render 'product-card', slug: 'samsung-s23-ultra', name: 'Samsung Galaxy S23 Ultra', brand: 'Samsung', storage: '256GB', color: 'Zwart', battery: 93, price: 449, original: 1399, rating: 4.8, sold: true %}
+  {% render 'product-card', slug: 'samsung-s24-grey', name: 'Samsung Galaxy S24', brand: 'Samsung', storage: '128GB', color: 'Grijs', battery: 95, price: 449, original: 899, rating: 4.7, sold: true %}
+  {% render 'product-card', slug: 'samsung-s24-black', name: 'Samsung Galaxy S24', brand: 'Samsung', storage: '128GB', color: 'Zwart', battery: 95, price: 449, original: 899, rating: 4.7, sold: true %}
+  {% render 'product-card', slug: 'samsung-s25-ultra-grey', name: 'Samsung Galaxy S25 Ultra', brand: 'Samsung', storage: '256GB', color: 'Titanium Grijs', battery: 98, price: 849, original: 1499, rating: 5.0, sold: true %}
+  {% render 'product-card', slug: 'samsung-s25-ultra-white', name: 'Samsung Galaxy S25 Ultra', brand: 'Samsung', storage: '256GB', color: 'Titanium Wit', battery: 98, price: 849, original: 1499, rating: 5.0, sold: true %}
+{%- endif -%}

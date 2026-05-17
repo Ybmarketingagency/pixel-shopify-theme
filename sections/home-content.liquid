@@ -1,19 +1,4 @@
-{%- comment -%} Load products via capture+parse_json so the variable lands in this section's scope. {%- endcomment -%}
-{%- capture pp_json -%}{% render 'pixel-products' %}{%- endcapture -%}
-{%- assign pixel_products = pp_json | parse_json -%}
-{%- assign iphones = pixel_products | where: 'brand', 'Apple' -%}
-{%- assign samsungs = pixel_products | where: 'brand', 'Samsung' -%}
 {%- assign hero_img = 'p-iphone-15-pro-natural-02.jpg' | asset_url -%}
-
-{%- comment -%} DIAGNOSTIC — remove after fix {%- endcomment -%}
-<div style="background:#fef3c7;padding:10px;font-family:monospace;font-size:12px;border-bottom:2px solid #f59e0b">
-  pp_json length: {{ pp_json | size }}
-  | pixel_products size: {{ pixel_products | size }}
-  | iphones size: {{ iphones | size }}
-  | samsungs size: {{ samsungs | size }}
-  | pp_json first 80: {{ pp_json | truncate: 80 | escape }}
-  | pixel_products first slug: {{ pixel_products[0].slug | default: 'NIL' }}
-</div>
 
 {%- comment -%} ================== HERO ================== {%- endcomment -%}
 <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
@@ -111,7 +96,7 @@
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
-    {% render 'product-slider', products: iphones, slider_id: 'iphones' %}
+    {% render 'product-slider', brand_filter: 'Apple', slider_id: 'iphones' %}
   </div>
 </section>
 
@@ -127,7 +112,7 @@
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
-    {% render 'product-slider', products: samsungs, slider_id: 'samsungs' %}
+    {% render 'product-slider', brand_filter: 'Samsung', slider_id: 'samsungs' %}
   </div>
 </section>
 

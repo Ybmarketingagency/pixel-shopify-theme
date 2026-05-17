@@ -96,8 +96,6 @@
   </div>
 
   <!-- Search dialog -->
-  {%- capture pp_json -%}{% render 'pixel-products' %}{%- endcapture -%}
-  {%- assign pixel_products = pp_json | parse_json -%}
   <div x-show="searchOpen" x-transition.opacity class="fixed inset-0 z-50" x-data="{ q: '' }" style="display: none;" @keydown.escape.window="searchOpen = false">
     <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="searchOpen = false"></div>
     <div class="relative max-w-2xl mx-auto mt-20 px-4">
@@ -120,21 +118,26 @@
             </div>
           </div>
 
-          {% for p in pixel_products %}
-            {%- assign img = p.slug | prepend: 'p-' | append: '-01.jpg' | asset_url -%}
-            {%- assign hay = p.name | append: ' ' | append: p.brand | append: ' ' | append: p.color | append: ' ' | append: p.storage | downcase -%}
-            <a href="/pages/telefoon?p={{ p.slug }}" data-hay="{{ hay }}" x-show="q.trim() && '{{ hay }}'.includes(q.trim().toLowerCase())" class="flex items-center gap-4 px-5 py-3 hover:bg-slate-50 transition border-b border-slate-50 last:border-0" style="display: none;">
-              <img src="{{ img }}" alt="{{ p.name }}" class="w-14 h-14 rounded-xl object-contain bg-slate-50 flex-shrink-0 p-1">
-              <div class="flex-1 min-w-0">
-                <div class="font-semibold text-slate-900 truncate">{{ p.name }}</div>
-                <div class="text-xs text-slate-500">{{ p.storage }} · {{ p.color }}</div>
-              </div>
-              <div class="text-right flex-shrink-0">
-                <div class="font-bold gradient-text">€{{ p.price }}</div>
-                <div class="text-xs text-slate-400 line-through">€{{ p.original }}</div>
-              </div>
-            </a>
-          {% endfor %}
+          {% render 'search-item', slug: 'iphone-13', name: 'iPhone 13', brand: 'Apple', storage: '128GB', color: 'Blauw', price: 249, original: 729 %}
+          {% render 'search-item', slug: 'iphone-13-pro', name: 'iPhone 13 Pro', brand: 'Apple', storage: '128GB', color: 'Blauw', price: 289, original: 1159 %}
+          {% render 'search-item', slug: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max', brand: 'Apple', storage: '256GB', color: 'Goud', price: 379, original: 1389 %}
+          {% render 'search-item', slug: 'iphone-14-pro', name: 'iPhone 14 Pro', brand: 'Apple', storage: '128GB', color: 'Zwart', price: 399, original: 1329 %}
+          {% render 'search-item', slug: 'iphone-14-pro-max', name: 'iPhone 14 Pro Max', brand: 'Apple', storage: '256GB', color: 'Zwart', price: 489, original: 1629 %}
+          {% render 'search-item', slug: 'iphone-15', name: 'iPhone 15', brand: 'Apple', storage: '128GB', color: 'Zwart', price: 339, original: 969 %}
+          {% render 'search-item', slug: 'iphone-15-plus', name: 'iPhone 15 Plus', brand: 'Apple', storage: '128GB', color: 'Roze', price: 389, original: 1149 %}
+          {% render 'search-item', slug: 'iphone-15-pro-black', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'Black Titanium', price: 469, original: 1229 %}
+          {% render 'search-item', slug: 'iphone-15-pro-white', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'White Titanium', price: 469, original: 1229 %}
+          {% render 'search-item', slug: 'iphone-15-pro-natural', name: 'iPhone 15 Pro', brand: 'Apple', storage: '128GB', color: 'Natural Titanium', price: 519, original: 1229 %}
+          {% render 'search-item', slug: 'iphone-15-pro-max', name: 'iPhone 15 Pro Max', brand: 'Apple', storage: '256GB', color: 'Blue Titanium', price: 649, original: 1449 %}
+          {% render 'search-item', slug: 'iphone-16', name: 'iPhone 16', brand: 'Apple', storage: '128GB', color: 'Zwart', price: 469, original: 969 %}
+          {% render 'search-item', slug: 'iphone-16-pro', name: 'iPhone 16 Pro', brand: 'Apple', storage: '128GB', color: 'Zwart', price: 599, original: 1229 %}
+          {% render 'search-item', slug: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max', brand: 'Apple', storage: '256GB', color: 'Desert Titanium', price: 699, original: 1479 %}
+          {% render 'search-item', slug: 'samsung-s22-ultra', name: 'Samsung Galaxy S22 Ultra', brand: 'Samsung', storage: '256GB', color: 'Groen', price: 349, original: 1249 %}
+          {% render 'search-item', slug: 'samsung-s23-ultra', name: 'Samsung Galaxy S23 Ultra', brand: 'Samsung', storage: '256GB', color: 'Zwart', price: 449, original: 1399 %}
+          {% render 'search-item', slug: 'samsung-s24-grey', name: 'Samsung Galaxy S24', brand: 'Samsung', storage: '128GB', color: 'Grijs', price: 449, original: 899 %}
+          {% render 'search-item', slug: 'samsung-s24-black', name: 'Samsung Galaxy S24', brand: 'Samsung', storage: '128GB', color: 'Zwart', price: 449, original: 899 %}
+          {% render 'search-item', slug: 'samsung-s25-ultra-grey', name: 'Samsung Galaxy S25 Ultra', brand: 'Samsung', storage: '256GB', color: 'Titanium Grijs', price: 849, original: 1499 %}
+          {% render 'search-item', slug: 'samsung-s25-ultra-white', name: 'Samsung Galaxy S25 Ultra', brand: 'Samsung', storage: '256GB', color: 'Titanium Wit', price: 849, original: 1499 %}
         </div>
       </div>
     </div>

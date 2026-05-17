@@ -1,0 +1,17 @@
+{%- comment -%}
+  Single search-result item. Usage:
+  {% render 'search-item', slug:'iphone-13', name:'iPhone 13', brand:'Apple', storage:'128GB', color:'Blauw', price:249, original:729 %}
+{%- endcomment -%}
+{%- assign img = slug | prepend: 'p-' | append: '-01.jpg' | asset_url -%}
+{%- assign hay = name | append: ' ' | append: brand | append: ' ' | append: color | append: ' ' | append: storage | downcase -%}
+<a href="/pages/telefoon?p={{ slug }}" x-show="q.trim() && '{{ hay }}'.includes(q.trim().toLowerCase())" class="flex items-center gap-4 px-5 py-3 hover:bg-slate-50 transition border-b border-slate-50 last:border-0" style="display: none;">
+  <img src="{{ img }}" alt="{{ name }}" class="w-14 h-14 rounded-xl object-contain bg-slate-50 flex-shrink-0 p-1">
+  <div class="flex-1 min-w-0">
+    <div class="font-semibold text-slate-900 truncate">{{ name }}</div>
+    <div class="text-xs text-slate-500">{{ storage }} &middot; {{ color }}</div>
+  </div>
+  <div class="text-right flex-shrink-0">
+    <div class="font-bold gradient-text">&euro;{{ price }}</div>
+    <div class="text-xs text-slate-400 line-through">&euro;{{ original }}</div>
+  </div>
+</a>
