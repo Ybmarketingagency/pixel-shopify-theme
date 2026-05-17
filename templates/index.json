@@ -1,6 +1,0 @@
-{
-  "sections": {
-    "home": { "type": "home-content" }
-  },
-  "order": ["home"]
-}

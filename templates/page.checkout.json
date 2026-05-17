@@ -1,6 +1,0 @@
-{
-  "sections": {
-    "content": { "type": "page-checkout" }
-  },
-  "order": ["content"]
-}
