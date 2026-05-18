@@ -10,6 +10,17 @@
 {%- assign wa_href = 'https://wa.me/31624978746?text=' | append: wa_msg_enc -%}
 {%- capture color_css -%}{% render 'color-swatch', name: color %}{%- endcapture -%}
 
+{%- comment -%}
+  Look up matching Shopify product by handle (= our slug). If admin has
+  created a product with that exact handle, we wire a real Koop nu button
+  that adds the variant to the cart and redirects to checkout.
+{%- endcomment -%}
+{%- assign shopify_product = all_products[slug] -%}
+{%- assign buy_variant_id = nil -%}
+{%- if shopify_product and shopify_product != empty and shopify_product.available -%}
+  {%- assign buy_variant_id = shopify_product.selected_or_first_available_variant.id -%}
+{%- endif -%}
+
 <div data-product-page="{{ slug }}" style="display: none;">
   <div class="container-x pt-6">
     <div class="flex items-center gap-2 text-xs text-slate-500">
@@ -100,12 +111,27 @@
             <div class="text-lg font-bold text-slate-900">Dit toestel is verkocht</div>
           </div>
         {% else %}
-          <div class="mt-8">
-            <a href="{{ wa_href }}" target="_blank" rel="noopener noreferrer" class="btn-wa w-full">
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            {% if buy_variant_id %}
+              {%- comment -%} Real Shopify product: add to cart + redirect to checkout {%- endcomment -%}
+              <form action="/cart/add" method="post" class="flex-1">
+                <input type="hidden" name="id" value="{{ buy_variant_id }}">
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="return_to" value="/checkout">
+                <button type="submit" class="btn-primary w-full">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  Koop nu &mdash; &euro;{{ price }}
+                </button>
+              </form>
+            {% endif %}
+            <a href="{{ wa_href }}" target="_blank" rel="noopener noreferrer" class="btn-wa flex-1">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               Bestel via WhatsApp
             </a>
           </div>
+          {% if buy_variant_id %}
+            <p class="mt-2 text-xs text-slate-500 text-center">Direct afrekenen met iDEAL, Bancontact of Apple Pay &middot; Of vraag persoonlijke service via WhatsApp</p>
+          {% endif %}
         {% endif %}
 
         <div class="mt-8 grid grid-cols-3 gap-3">
