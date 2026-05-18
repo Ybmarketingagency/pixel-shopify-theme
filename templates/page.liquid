@@ -1,6 +1,28 @@
-<div class="container-x py-16">
-  <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-6">{{ page.title }}</h1>
-  <div class="prose max-w-none text-slate-700">
-    {{ page.content }}
-  </div>
-</div>
+{%- comment -%}
+  Default page template — dispatches on page.handle so admins don't have to
+  pick a custom template. Just create a Page with the right URL handle and
+  the matching section renders automatically.
+{%- endcomment -%}
+{%- case page.handle -%}
+  {%- when 'over-ons' -%}
+    {% section 'page-over-ons' %}
+  {%- when 'contact' -%}
+    {% section 'page-contact' %}
+  {%- when 'klantenservice' -%}
+    {% section 'page-klantenservice' %}
+  {%- when 'verkopen' -%}
+    {% section 'page-verkopen' %}
+  {%- when 'telefoons' -%}
+    {% section 'page-telefoons' %}
+  {%- when 'telefoon' -%}
+    {% section 'page-telefoon' %}
+  {%- when 'checkout' -%}
+    {% section 'page-checkout' %}
+  {%- when 'afrekenen' -%}
+    {% section 'page-checkout' %}
+  {%- else -%}
+    <div class="container-x py-16">
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-6">{{ page.title }}</h1>
+      <div class="prose max-w-none text-slate-700">{{ page.content }}</div>
+    </div>
+{%- endcase -%}
