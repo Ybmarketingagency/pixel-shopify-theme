@@ -21,6 +21,10 @@
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
           <span class="font-medium">Verzending</span>
         </button>
+        <button type="button" @click="active = 'returns'; open = null" :class="active === 'returns' ? 'bg-brand-50 text-brand-700' : 'hover:bg-slate-50 text-slate-700'" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-left transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <span class="font-medium">Retour</span>
+        </button>
         <button type="button" @click="active = 'warranty'; open = null" :class="active === 'warranty' ? 'bg-brand-50 text-brand-700' : 'hover:bg-slate-50 text-slate-700'" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-left transition">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span class="font-medium">Garantie</span>
@@ -57,13 +61,27 @@
         </div>
       </div>
 
+      {%- comment -%} Retour {%- endcomment -%}
+      <div x-show="active === 'returns'">
+        <h2 class="text-3xl font-black mb-6">Retour</h2>
+        <p class="text-slate-600 mb-6">Bij Pixel zijn we open over hoe het werkt. Of je een toestel mag retourneren hangt af van hoe je het hebt ontvangen. Garantie op de werking heb je altijd, in beide gevallen, voor 6 maanden.</p>
+        <div class="space-y-3">
+          {% render 'faq-item', q: 'Online besteld en thuisbezorgd? 14 dagen bedenktijd', a: 'Volgens de Nederlandse wet heb je bij online aankopen 14 dagen wettelijk herroepingsrecht vanaf het moment dat je het toestel ontvangt. Stuur ons binnen die 14 dagen een berichtje via WhatsApp en stuur het toestel compleet en in dezelfde staat terug (alle accessoires, niet beschadigd, niet vergrendeld met iCloud of Google-account). Wij betalen het volledige aankoopbedrag binnen 14 dagen na ontvangst terug. Retourkosten zijn voor jouw rekening (PostNL).', k: 'ret-1' %}
+          {% render 'faq-item', q: 'Persoonlijk opgehaald of aan de deur ontvangen? Gekocht is gekocht', a: 'Bij persoonlijke overhandiging testen we het toestel samen met jou ter plekke — scherm, batterij, alle functies. Pas als jij tevreden bent rond je de aankoop af. Daarna kunnen we het toestel niet terugnemen als je van gedachten verandert. Deze regel mag van de wet omdat de aankoop niet op afstand is gesloten. We doen dit bewust zodat we onze prijzen scherp kunnen houden. De volledige 6 maanden garantie op de werking blijft natuurlijk gelden.', k: 'ret-2' %}
+          {% render 'faq-item', q: 'Hoe werkt het retourproces stap voor stap?', a: 'Stap 1: App ons via WhatsApp op +31 6 24978746 binnen 14 dagen na ontvangst. Stap 2: Wij sturen je het retouradres. Stap 3: Stuur het toestel compleet en goed verpakt terug. Stap 4: Zodra het binnen is, controleren we het toestel en storten we binnen 14 dagen het volledige aankoopbedrag terug op je rekening.', k: 'ret-3' %}
+          {% render 'faq-item', q: 'Wanneer kan ik het toestel niet meer retourneren?', a: 'Als de 14 dagen voorbij zijn, als het toestel beschadigd is geraakt na ontvangst, als accessoires ontbreken, of als het toestel nog gekoppeld is aan je iCloud of Google-account. Bij een functioneel defect val je dan onder de garantie — die geldt 6 maanden vanaf je aankoopdatum.', k: 'ret-4' %}
+        </div>
+      </div>
+
       {%- comment -%} Garantie {%- endcomment -%}
       <div x-show="active === 'warranty'">
         <h2 class="text-3xl font-black mb-6">Garantie</h2>
+        <p class="text-slate-600 mb-6">Op elk toestel zit 6 maanden volledige garantie op de werking — of je het nu online besteld of persoonlijk opgehaald hebt. Werkt iets niet zoals het hoort? Wij lossen het op.</p>
         <div class="space-y-3">
-          {% render 'faq-item', q: 'Hoe lang is de garantie?', a: 'Elke refurbished telefoon komt met 6 maanden garantie op alle onderdelen en functies.', k: 'warr-1' %}
-          {% render 'faq-item', q: 'Wat valt er onder de garantie?', a: 'Alle fabricagefouten en interne defecten. Schade door vallen of vocht valt er niet onder.', k: 'warr-2' %}
-          {% render 'faq-item', q: 'Hoe claim ik mijn garantie?', a: 'Neem contact op via WhatsApp met je bestelnummer en een omschrijving. We reageren binnen 24 uur.', k: 'warr-3' %}
+          {% render 'faq-item', q: 'Hoe lang is de garantie?', a: 'Elke refurbished telefoon komt met 6 maanden garantie op alle onderdelen en functies, gerekend vanaf je aankoopdatum.', k: 'warr-1' %}
+          {% render 'faq-item', q: 'Wat valt er onder de garantie?', a: 'Alle fabricagefouten en interne defecten: scherm, batterij, knoppen, ontvangst, camera, luidsprekers, laden, etc. Schade door vallen, vocht, eigen reparaties of normale slijtage valt er niet onder.', k: 'warr-2' %}
+          {% render 'faq-item', q: 'Hoe claim ik mijn garantie?', a: 'App ons via WhatsApp met je bestelnummer en een korte omschrijving of video van het probleem. We reageren meestal binnen een paar uur (ma–za) en sturen je een verzendlabel of plannen een persoonlijke afhandeling. Reparatie of vervangend toestel binnen 5–10 werkdagen terug bij jou.', k: 'warr-3' %}
+          {% render 'faq-item', q: 'Krijg ik mijn geld terug als reparatie niet lukt?', a: 'Als we het probleem niet kunnen oplossen en geen gelijkwaardig vervangend toestel kunnen aanbieden, krijg je het volledige aankoopbedrag terug.', k: 'warr-4' %}
         </div>
       </div>
 
